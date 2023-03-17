@@ -42,7 +42,7 @@ The core Boop requires a sensor, short rail, magnets, and various fasteners. Boo
 | | 6mm n52 magnets | 2 | | |
 
 ## Technical Data
-![x_input_shaper_graph](../Images/calibrate_x_2023-03-11-extrusionless-nozzle-adxl-v4-all-backward-facing-heatblock-hb-rail.png)
-![y_input_shaper_graph](../Images/calibrate_y_2023-03-11-extrusionless-nozzle-adxl-v4-all-backward-facing-heatblock-hb-rail.png)
-![x_raw_data](../Images/x_raw_2023-03-11-extrusionless-nozzle-adxl-v4-all-backward-facing-heatblock-hb-rail.png)
-![y_raw_data](../Images/y_raw_2023-03-11-extrusionless-nozzle-adxl-v4-all-backward-facing-heatblock-hb-rail.png)
+![x_input_shaper_graph](./Images/calibrate_x_2023-03-11-extrusionless-nozzle-adxl-v4-all-backward-facing-heatblock-hb-rail.png)
+![y_input_shaper_graph](./Images/calibrate_y_2023-03-11-extrusionless-nozzle-adxl-v4-all-backward-facing-heatblock-hb-rail.png)
+![x_raw_data](./Images/x_raw_2023-03-11-extrusionless-nozzle-adxl-v4-all-backward-facing-heatblock-hb-rail.png)
+![y_raw_data](./Images/y_raw_2023-03-11-extrusionless-nozzle-adxl-v4-all-backward-facing-heatblock-hb-rail.png)
