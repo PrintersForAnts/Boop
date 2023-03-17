@@ -1,5 +1,6 @@
-
 # Boop
+
+![boop_beta-3_render](./beta_3/Images/def70163-3fc1-4d16-b291-b5826ff7d52b.png)
 
 Boop is a down-scaled version of the [Voron Tap](https://github.com/VoronDesign/Voron-Tap/) nozzle-based Z probe, optimized for  [Printers for Ants](https://3dprintersforants.com) that use V0-style toolheads.
 
@@ -13,6 +14,7 @@ Just like [Tap](https://github.com/VoronDesign/Voron-Tap/), with Boop, the entir
 ## Version History
 
 **2023-01-08**: beta-1 release!  :tada:
+**2023-03-14**: beta-3 release!  :pie:
 
 ## Requirements
 
@@ -23,16 +25,13 @@ Just like [Tap](https://github.com/VoronDesign/Voron-Tap/), with Boop, the entir
     * V0.2-style mount: 2 holes in front, 1 in back
         * Supports MiniSB
     * V0.1-style mount: 2 holes in front
-        * Support MiniAB, MinAS, and potentially others
-* 5V required at toolhead
+        * ~~Support MiniAB, MinAS, and potentially others~~
+		* MiniAB, MiniAS and other toolheads based on the MiniAB mounting are no longer officially supported as of beta-3
+* 5/24V required at toolhead
 
 ## Instructions
 
-Print 2 parts:
-1. common base
-2. front part (matching your toolhead).  
-
-For both, Voron-standard settings will work, however higher infill and perimeters are recommended, as you want this part to be strong.
+** CHECK THE STL DIRECTORIES FOR SPECIFIC INSTRUCTIONS **
 
 Much of the [Voron Tap](https://github.com/VoronDesign/Voron-Tap/blob/main/Manual/Assembly_Manual_Tap.pdf) manual applies here; read through it first.  
 
@@ -45,21 +44,9 @@ In particular, note the section about adjusting the bed forwards.  Boop adds ???
 
 ## BOM
 
-The core Boop requires a sensor, short rail, magnets, and various fasteners.
+** CHECK THE STL DIRECTORIES FOR SPECIFIC BOM **
 
-| Type | Part | Qty | Link | Note |
-| - | - | - | - | - |
-| Sensor | OPB991P51Z<p><p>2nd choice: OPB990P51Z | 1 | [Digi-Key: OPB991P51Z](https://www.digikey.com/en/products/detail/tt-electronics-optek-technology/OPB991P51Z/1637791)<p><p>2nd choice: [Digi-Key: OPB990P51Z](https://www.digikey.com/en/products/detail/tt-electronics-optek-technology/OPB990P51Z/1637770) | The 991 sensor is strongly recommended as it is safe for MCUs that cannot tolerate 5v input signals. If you have a MCU that is 5v safe then the 990 can be used. Please verify your MCUs capabilities before ordering! |
-| Magnet | 6mm n52 magnets | 2 | | |
-| Rail | MGN9H 50mm | 1 | | |
-| Electronics | 220 ohm, 1/4 watt | 1 | | |
-| Fastener | M3 hex nut | 1 | | |
-| Fastener | M3 heatset inserts | 4 | |
-| Fastener | M3x6 BHCS | 3 | | |
-| Fastener | M3x6 FHCS | 2 | | black oxide or other magnetic alloy required |
-| Fastener | What else? ??? | | | |
-
-**In addition, an MGN9H rail sized for your specific printer will be needed.**  See below for printer compatibility and sizes.
+**An MGN9H rail sized for your specific printer will be needed.**  See below for printer compatibility and sizes.
 
 
 ## Compatibility Chart & Rail Sizes
@@ -77,39 +64,6 @@ The core Boop requires a sensor, short rail, magnets, and various fasteners.
 | [Voron Zero](https://github.com/VoronDesign/Voron-0), [Tiny-M](https://github.com/gsl12/Tiny-M) | ❌ Cantilevered beds are not a fit.  |
 | [Dueling Zero](https://github.com/zruncho3d/DuelingZero) | ❌ Not supported, as a front-facing gantry is required, and clearance to the vertically-oriented Z extrusions would be needed |
 
-## Probe Accuracy Samples
-
-Microstep-level precision is possible with Boop!  Sample outputs, from the PROBE_ACCURACY command built into Klipper:
-
-#### Yeri’s Salad Fork
-
-
-```
-probe accuracy results: maximum -0.507500, minimum -0.508750, range 0.001250, average -0.508650, median -0.508750, standard deviation 0.000339
-```
-
-#### Hartk’s Micron
-
-```
-probe accuracy results: maximum 0.016852, minimum 0.16227, range 0.000625, average 0.016477, median 0.016540, standard deviation 0.000187
-```
-
-#### Zruncho’s PB0-over-T0 Testbed
-
-```
-probe accuracy results: maximum -1.504824, minimum -1.509824, range 0.005000, average -1.507536, median -1.507324, standard deviation 0.001016
-```
-
-This is a [custom testbed with a Pandora’s Box gantry atop a Tri-Zero lower](https://photos.app.goo.gl/bsP73i9GyqMNQoTf8).  Unlike the two above, this setup is direct-drive, with no reduction.
-
-This number was made possible by increasing the microstepping to 128x to yield a 0.00125 microstep size.
-
-#### DoubleT’s TinyT
-
-```
-probe accuracy results: maximum 0.010000, minimum 0.003750, range 0.006250, average 0.005775, median 0.005000, standard deviation 0.001730
-```
-
 ## FAQ
 
 All [Voron Tap FAQs](https://github.com/VoronDesign/Voron-Tap/#faqs) apply here too!
@@ -126,7 +80,7 @@ Not at this time.  Seems hard to design, because the right angle of a V0 mount w
 So much of the design is shared with Voron Tap that a README here will have to suffice for now.
 
 ### Is there a circuit board?
-Not yet.
+Yes! Beta-3 add support for the OptoTap board, intended for Tap!
 
 ### Is there a version for V0?
 No.  Cantilevered beds are not a fit for Tap/Boop-style probing, where significant force is involved.
@@ -145,10 +99,22 @@ Yes.  It would be smaller and lighter than Tap, and enable the use of the V0-sty
 
 ## Credits
 
+`clee` tested the beta parts and provided feedback.
+
+`DoubleT` tested the beta parts and provided feedback.
+
+`hartk` did initial beta testing and feedback.
+
+`Kyleisah` provided the beautiful render of Boop beta-3.
+
+`L.e.o.p.a.r.d.` tested beta-3, provided feedback and is working on alternative methods of triggering boop.
+
+`Mastur_Mynd` developed beta-3, taking many design queues from both beta-2 as well as Voron Tap.
+
+`pnewb` tested beta-3 and provided feedback and criticism.
+
+`Steve` tested beta-3, provided feedback and previewed live on stream!
+
 `Yeri` did the original and following CAD work and is the project lead.
 
-`Hartk` did initial testing and feedback.
-
-`Zruncho` did testing, some CAD exploration, and wrote the README.
-
-`MasturMynd` and `DoubleT` tested the beta parts and provided feedback.
+`Zruncho` did testing, some CAD exploration, and wrote the initial README.
