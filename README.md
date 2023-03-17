@@ -1,41 +1,50 @@
 # Boop
 
+Add nozzle probing to your [Printer For Ants](https://www.3dprintersforants.com).
+
 ![boop_beta-3_render](./beta_3/Images/def70163-3fc1-4d16-b291-b5826ff7d52b.png)
 
-Boop is a down-scaled version of the [Voron Tap](https://github.com/VoronDesign/Voron-Tap/) nozzle-based Z probe, optimized for  [Printers for Ants](https://3dprintersforants.com) that use V0-style toolheads.
+Boop is a down-scaled version of the [Voron Tap](https://github.com/VoronDesign/Voron-Tap/) nozzle-based Z probe, and has been carefully optimized for [Printers for Ants](https://3dprintersforants.com) that have front-facing MGN9 rails and rock Voron V0.2-style toolheads.
 
-Just like [Tap](https://github.com/VoronDesign/Voron-Tap/), with Boop, the entire toolhead moves to trigger an optical switch, which offers many advantages, including:
-* **excellent precision** :~.0001mm in some cases - microstep-level!!!
-* **reliability**: an effectively infinite number of probing cycles
+Just like [Tap](https://github.com/VoronDesign/Voron-Tap/) - with Boop, the entire toolhead moves to trigger an optical switch, which offers many advantages, including:
+* **excellent precision**: sub .001mm in some cases - microstep-level!!!
+* **excellent reliability**: an effectively infinite number of probing cycles
 * **software simplicity**: simplified macro configuration
 
-... and more noted on the Tap [README](https://github.com/VoronDesign/Voron-Tap/).  It's great.
+... and more, as noted on the Tap [README](https://github.com/VoronDesign/Voron-Tap/).  It's great.
 
 ## Version History
 
-**2023-01-08**: beta-1 release!  :tada:
-**2023-03-14**: beta-3 release!  :pie:
+**2023-03-14: beta-3 release by MasturMynd!** :pie:
+
+A new two-part, centered-sensor design brings major practical improvements:
+* **stronger**: more beef + two-part design + built-in strengthening slots
+* **easier to print**: reduced/simplified supports + uses standard Voron settings
+* **easier to evolve**: two-part design enables faster iteration and the potential for rear V0.2-style heatsets
+* **now supports Tap sensor boards!**
+
+**2023-02-08: beta-2 release by Yeri** - resolved some small interferences.  Files on DoomCube Discord, if you need them.
+
+**2023-01-08: beta-1 release by Yeri!** :tada: proof that you can fit the Tap concept onto a much smaller printer, in a much tighter space.
 
 ## Requirements
 
 * Bed must be stable for high probing force
     * Not a fit for cantilevered-bed printers, including V0 and Tiny-M
-* Mounts to a front-facing MGN-9H X-axis rail
-* V0-style Toolhead
-    * V0.2-style mount: 2 holes in front, 1 in back
-        * Supports MiniSB
-    * V0.1-style mount: 2 holes in front
-        * ~~Support MiniAB, MinAS, and potentially others~~
-		* MiniAB, MiniAS and other toolheads based on the MiniAB mounting are no longer officially supported as of beta-3
+* Front-facing MGN-9H X-axis rail
+* V0.2-style toolhead with 2 holes in front, 1 in back
+    * Supports MiniSB
 * 5/24V required at toolhead
+
+**NOTE**: As of beta-3, other toolheads based on the MiniAB mounting pattern are *not* officially supported, such as the MiniAB, MiniAS, and others.
 
 ## Instructions
 
-** CHECK THE STL DIRECTORIES FOR SPECIFIC INSTRUCTIONS **
+** CHECK THE STL DIRECTORIES FOR SPECIFIC INSTRUCTIONS! **
 
 Much of the [Voron Tap](https://github.com/VoronDesign/Voron-Tap/blob/main/Manual/Assembly_Manual_Tap.pdf) manual applies here; read through it first.  
 
-In particular, note the section about adjusting the bed forwards.  Boop adds ??? travel to front-facing carriages for Micron and Salad Fork.  
+In particular, note the section about adjusting the bed forwards.
 
 1. Update your `printer.cfg` as recommended in [Tap Klipper Instructions](https://github.com/VoronDesign/Voron-Tap/blob/main/config/tap_klipper_instructions.md)
 2. Home Z and test virtual Z endstop by lifting tool-head
@@ -71,7 +80,7 @@ All [Voron Tap FAQs](https://github.com/VoronDesign/Voron-Tap/#faqs) apply here 
 If you don’t see an answer for your question, the place to ask is the `#boop` channel in the [DoomCube Discord](https://discord.gg/doomcube).
 
 ### Does this move my toolhead around?
-Yes, a bit, and your bed mount will require a corresponding adjustment forwards. ** TODO: add precise value.**
+Yes, a bit, and your bed mount will require a corresponding adjustment forwards.
 
 ### Is there a top-mount Boop version for my Tri-Zero?
 Not at this time.  Seems hard to design, because the right angle of a V0 mount would create the potential for flex.   Perhaps with metal reinforcements, this could work, but you would run into the door and lose space.
@@ -80,7 +89,7 @@ Not at this time.  Seems hard to design, because the right angle of a V0 mount w
 So much of the design is shared with Voron Tap that a README here will have to suffice for now.
 
 ### Is there a circuit board?
-Yes! Beta-3 add support for the OptoTap board, intended for Tap!
+Yes! Beta-3 adds support for the OptoTap board, intended for Tap!
 
 ### Is there a version for V0?
 No.  Cantilevered beds are not a fit for Tap/Boop-style probing, where significant force is involved.
